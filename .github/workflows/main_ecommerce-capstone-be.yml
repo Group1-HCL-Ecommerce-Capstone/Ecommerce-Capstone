@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'Back-End/**'
   workflow_dispatch:
 
 jobs:
@@ -49,5 +51,5 @@ jobs:
         with:
           app-name: 'ecommerce-capstone-be'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6807EEA529D64D5A931DD35AE89F4625 }}
+          publish-profile: ${{ secrets.AZURE_BE }}
           package: '*.jar'
