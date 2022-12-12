@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'Front-End/**'
   workflow_dispatch:
 
 jobs:
@@ -23,15 +25,15 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
-      
+          cd Front-End
+          npm install -f
+          npm run build --prod
+          
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: ./Front-End/dist/midterm-frontend
 
   deploy:
     runs-on: ubuntu-latest
@@ -52,5 +54,5 @@ jobs:
         with:
           app-name: 'ecommerce-capstone-fe'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_275447ACA17D424BA77534CA84CED75C }}
+          publish-profile: ${{ secrets.AZURE_FE }}
           package: .
