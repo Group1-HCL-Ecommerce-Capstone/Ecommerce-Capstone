@@ -1,0 +1,35 @@
+<html>
+
+<br>
+<h1 class="text-center">User Details</h1>
+<a class="btn btn-light float-end" routerLink="/profile/add" role="button">Add Address</a><br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Address Id</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Zipcode</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let adr of userDetails">
+            <td>{{adr.id}}</td>
+            <td>{{adr.street}}</td>
+            <td>{{adr.city}}</td>
+            <td>{{adr.state}}</td>
+            <td>{{adr.country}}</td>
+            <td>{{adr.zipcode}}</td>
+            <td>{{adr.phone}}</td>
+            <td> <button mat-button (click)="editAddress(adr.id)" class="btn btn-info btn-sm">Edit</button>&nbsp;
+                <button mat-button (click)="deleteAddress(adr.id)"
+                    class="btn btn-danger btn-sm">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</html>

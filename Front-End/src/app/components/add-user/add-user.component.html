@@ -1,0 +1,61 @@
+<br>
+<a class="btn btn-secondary" routerLink="/manage/users" role="button">Back</a>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-md-3">
+            <div class="row" *ngIf="isAdded">
+                <div class="col-xs-12">
+                    <p class="alert alert-success">
+                        <strong>User Added! </strong><a routerLink="/manage/users">Go Back?</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row" *ngIf="isAdded==false">
+                <div class="col-xs-12">
+                    <p class="alert alert-danger">
+                        <strong>Error Adding User </strong>
+                    </p>
+                </div>
+            </div>
+            <h1>User Management</h1>
+            <form #UserForm="ngForm" (ngSubmit)="onSubmit(UserForm)">
+                <h3>Add User to Catalog</h3>
+                <div class="form-group">
+                    <label for="first"> First Name: </label>
+                    <input type="text" [(ngModel)]="user.firstName" class="form-control" id="first" name="first"
+                        placeholder="Enter first name" autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label for="last"> Last Name: </label>
+                    <input type="text" [(ngModel)]="user.lastName" class="form-control" id="last" name="last"
+                        placeholder="Enter last name" autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label for="email"> Email: </label>
+                    <input type="text" [(ngModel)]="user.email" class="form-control" id="email"
+                        name="email" placeholder="Enter email" autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label for="pass"> Password: </label>
+                    <input type="text" [(ngModel)]="user.password" class="form-control" id="pass"
+                        name="pass" placeholder="Enter password" autofocus="autofocus" />
+                </div>
+                <!--
+                <div class="form-group">
+                    <label for="roles"> Roles: </label>
+                    <input type="text" [(ngModel)]="user.roles" class="form-control" id="roles"
+                        name="roles" placeholder="Enter roles" autofocus="autofocus" />
+                </div>
+            -->
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="UserDetails-submit" id="UserDetails-submit"
+                                class="form-control btn btn-primary" value="Submit" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

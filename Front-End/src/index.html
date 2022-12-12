@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>MidtermFrontend</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css" rel="text/html">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://js.stripe.com/v3/"></script>
+  <script type="text/javascript">
+    const stripe = Stripe('pk_test_51M9UYGAywS1S1N1AIpCijfjSSVmJsOkg17aXqpBJKwIY51I4lJfrkUkLA3KuIeMUjWv0Za8usbNQCq66rpMO3rES00RrhgPzTg');
+    const elements = stripe.elements();
+  </script>
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+</html>

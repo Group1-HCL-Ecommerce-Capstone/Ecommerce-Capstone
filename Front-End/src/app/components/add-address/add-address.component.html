@@ -1,0 +1,88 @@
+<br>
+<a class="btn btn-secondary" routerLink="/profile/list" role="button">Back</a>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-md-3">
+            <div class="row" *ngIf="isAdded">
+                <div class="col-xs-12">
+                    <p class="alert alert-success">
+                        <strong>Address Added! </strong><a routerLink="/profile/list">Go Back?</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row" *ngIf="isAdded==false">
+                <div class="col-xs-12">
+                    <p class="alert alert-danger">
+                        <strong>Error Adding Address </strong>
+                    </p>
+                </div>
+            </div>
+
+            <h1>User Details</h1>
+            <form #DetailsForm="ngForm" (ngSubmit)="onSubmit(DetailsForm)">
+                <h3>Address</h3>
+                <div class="form-group">
+                    <label for="username"> Street: </label>
+                    <input class="form-control" id="street" type="text" name="street" placeholder="Enter street"
+                        required #street="ngModel" [(ngModel)]="userDetails.street" autofocus="autofocus" />
+                    <div *ngIf="street.invalid && (street.dirty || street.touched)" class="msg">
+                        <div *ngIf="street.errors?.['required']">Street is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city"> City: </label>
+                    <input type="text" [(ngModel)]="userDetails.city" class="form-control" id="city" name="city"
+                        #city="ngModel" required placeholder="Enter city" autofocus="autofocus" />
+                        <div *ngIf="city.invalid && (city.dirty || city.touched)" class="msg">
+                            <div *ngIf="city.errors?.['required']">City is required</div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="state"> State: </label>
+                    <input type="text" [(ngModel)]="userDetails.state" class="form-control" id="state" name="state"
+                        required #state="ngModel" maxlength="2" placeholder="Enter State" autofocus="autofocus" />
+                        <div *ngIf="state.invalid && (state.dirty || state.touched)" class="msg">
+                            <div *ngIf="state.errors?.['required']">State is required</div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="zipcode"> Zipcode: </label>
+                    <input type="text" [(ngModel)]="userDetails.zipcode" class="form-control" id="zipcode" required
+                        #zipcode="ngModel" name="zipcode" placeholder="Enter zipcode" autofocus="autofocus" />
+                        <div *ngIf="zipcode.invalid && (zipcode.dirty || zipcode.touched)" class="msg">
+                            <div *ngIf="zipcode.errors?.['required']">Zipcode is required</div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="country"> Country: </label>
+                    <input type="text" [(ngModel)]="userDetails.country" class="form-control" id="country" required
+                        #country="ngModel" name="country" maxlength="3" placeholder="Enter country" autofocus="autofocus" />
+                        <div *ngIf="country.invalid && (country.dirty || country.touched)" class="msg">
+                            <div *ngIf="country.errors?.['required']">Country is required</div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone"> Phone: </label>
+                    <input type="text" [(ngModel)]="userDetails.phone" class="form-control" id="phone" name="phone"
+                        #phone="ngModel" minlength="10" maxlength="10" required placeholder="Enter phone number" autofocus="autofocus" />
+                        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="msg">
+                            <div *ngIf="phone.errors?.['required']">Phone Number is required</div>
+                            <div *ngIf="phone.errors?.['minlength']">Phone Number must be 10 digits</div>
+                            <div *ngIf="phone.errors?.['maxlength']">Phone Number must be 10 digits</div>
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="UserDetails-submit" id="UserDetails-submit"
+                                class="form-control btn btn-primary" value="Submit" [disabled]="!DetailsForm.valid"/>
+                            <!--<input (click)="updateAddress(DetailsForm)" type="button" name="UserDetails-update" id="UserDetails-update"
+                                class="form-control btn btn-secondary" value="Update" />-->
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

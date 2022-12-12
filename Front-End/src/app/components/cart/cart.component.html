@@ -1,0 +1,43 @@
+<h1 class="text-center">Cart</h1>
+<mat-card>
+    <h3 class="text-center" *ngIf="!products || products.length === 0">Your Cart is Empty</h3>
+    <table *ngFor="let item of products; index as i">
+        <thead>
+            <tr>
+                <th></th>
+                <th>{{item.product.name}}</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{i+1}}.</td>
+                <td><img mat-card-sm-image src="./assets/productImages/{{item.product.image}}"></td>
+                <td>Price: ${{item.product.price}}</td>
+                <td>Quantity:
+                    <p class="value-button" id="decrease" (click)="decrease(item.product.id, item.quantity)">-</p>
+                    <span id="number">{{item.quantity}}</span>
+                    <p class="value-button" id="increase" (click)="increase(item.product.id, item.quantity)">+</p></td>
+                <td>Total Price: ${{item.product.price*item.quantity| number:'1.2-2'}}</td>
+                <td><button mat-button (click)="remove(item.id)"><mat-icon>delete_forever</mat-icon></button> </td>
+            </tr>
+        </tbody>
+    </table>
+    <!--{{i+1}}. <img mat-card-sm-image src="./assets/productImages/{{item.product.image}}">
+    <mat-card-content>
+        <p>{{item.product.name}}</p>
+        <p>Price: ${{item.product.price}}</p>
+        <div>
+            Quantity:
+            <p class="value-button" id="decrease" (click)="decrease(item.product.id, item.quantity)">-</p>
+            <span id="number">{{item.quantity}}</span>
+            <p class="value-button" id="increase" (click)="increase(item.product.id, item.quantity)">+</p>
+        </div>
+        <p>Total Price: ${{item.product.price*item.quantity| number:'1.2-2'}}</p>
+
+    </mat-card-content>-->
+</mat-card>
+<h5 style="text-align:right;">Cart Total: ${{cartItems.totalPrice| number:'1.2-2'}} <a class="btn btn-primary" routerLink="/checkout" role="button" >Place Order</a></h5>

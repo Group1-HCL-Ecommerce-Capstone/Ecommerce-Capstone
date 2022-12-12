@@ -1,0 +1,32 @@
+<!--<app-root>(toggleSidenav)='sidenav.toggle()'</app-root>-->
+<div>
+    <div>
+        <app-root></app-root>
+    </div>
+
+    <mat-sidenav-container style="height: 100vh" hasBackdrop="false">-->
+        <mat-drawer class="inline-element right" #sidenav style="padding: 20px;width: 300px" position="end">
+            <h1>Cart</h1>
+            <mat-card *ngFor="let item of products; index as i">
+                {{i+1}}. <img mat-card-sm-image src="./assets/productImages/{{item.product.image}}">
+                <mat-card-content>
+                    <p>{{item.product.name}}</p>
+                    <p>Price: ${{item.product.price}}</p>
+                    <div>
+                        Quantity:
+                        <p class="value-button" id="decrease" (click)="decrease(item.product.id, item.quantity)">-</p>
+                        <span id="number">{{item.quantity}}</span>
+                        <p class="value-button" id="increase" (click)="increase(item.product.id, item.quantity)">+</p>
+                    </div>
+                    <p>Total Price: ${{item.product.price*item.quantity| number:'1.2-2'}}</p>
+
+                </mat-card-content>
+            </mat-card>
+            <h5>Cart Total: ${{cartItems.totalPrice| number:'1.2-2'}}</h5>
+            <button type="button" (click)="sidenav.toggle()">toggle</button>
+        </mat-drawer>
+        <!--<div>
+        <button type="button" (click)="sidenav.toggle()">toggle</button>
+    </div>-->
+    </mat-sidenav-container>
+</div>

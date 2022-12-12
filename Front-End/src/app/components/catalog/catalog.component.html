@@ -1,0 +1,49 @@
+<html>
+
+<!--<mat-card class="product-card">
+
+    <img mat-card-image src="assets\productImages\iPhone.jfif">
+    <mat-card-content>
+        <h3>Product Name</h3>
+        <h4>Product Price</h4>
+        <p>This is where the description will show up.</p>
+    </mat-card-content>
+<mat-card-actions>
+    <button mat-button>Add to Cart</button>
+
+</mat-card-actions>
+</mat-card>-->
+
+<mat-grid-list cols="3" rowHeight="400">
+    <mat-grid-tile *ngFor="let product of products">
+        <mat-card class="product-card">
+
+            <img mat-card-lg-image src="./assets/productImages/{{product.image}}" alt="{{product.image}}">
+
+            <mat-card-content>
+                <h3>{{product.name}}</h3>
+                <h5>${{product.price}}</h5>
+                <h5>Current stock: {{product.stock}}</h5>
+                <h6 *ngIf="product.stock < 10 && product.stock > 0">Low Stock</h6>
+                <h6 *ngIf="product.stock == 0">Out of Stock</h6>
+                <p>{{product.description}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <div>
+
+                    <form *ngIf="isLoggedIn||(isAuthenticated$ | async)" [formGroup]="quantForm">
+                        <mat-form-field class="size">
+                            <mat-label>Quantity</mat-label>
+                            <input matInput [formControl]="quantControl" type="number" min="0"
+                                max="{{product.stock}}">
+                        </mat-form-field>
+                        <button mat-button (click)="addToCart(product)"><mat-icon>add_shopping_cart</mat-icon>Add to Cart</button>
+                    </form>
+                </div>
+
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+
+</html>

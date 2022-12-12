@@ -1,0 +1,10 @@
+
+
+<!--If logged in using db credentials-->
+<p *ngIf="isLoggedInDB" class="text-center">Welcome {{name$}}</p>
+    
+<!--If logged in using okta credentials-->
+<p *ngIf="isLoggedInOkta&&!isLoggedInDB" class="text-center">Hello {{name$ | async}}!</p>
+
+<!--If not logged in-->
+<p *ngIf="!isLoggedInOkta&&!isLoggedInDB" class="text-center">Welcome</p>

@@ -1,0 +1,51 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-md-3">
+            <h1>Login Page</h1>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                <div class="row" *ngIf="isErr">
+                    <div class="col-xs-12">
+                        <p class="alert alert-danger">
+                            <strong>Login unsuccessful! {{errMessage}}</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username"> Username or email: </label>
+                    <input type="text" [(ngModel)]="user.email" class="form-control" id="username" name="username"
+                        required email #username="ngModel" placeholder="Enter username or email" autofocus="autofocus" />
+                        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="msg">
+                            <div *ngIf="username.errors?.['required']">Email is required</div>
+                            <div *ngIf="username.errors?.['email']">Email is invalid</div>
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password"> Password: </label>
+                    <input type="password" [(ngModel)]="user.password" class="form-control" id="password"
+                        name="password" required #password="ngModel" placeholder="Enter password" autofocus="autofocus" />
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="msg">
+                            <div *ngIf="password.errors?.['required']">Password is required</div>
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="login-submit" id="login-submit" [disabled]="!loginForm.valid"
+                                class="form-control btn btn-primary" value="Log In" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="form-group">
+                <span>New User? <a href="/register">Register here</a></span>
+            </div>
+            <div>
+                Have an Okta Account? <button mat-button (click)="signIn()">Sign in with Okta</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+.mat-select-content{
+    border: rgb(167, 165, 165) solid ;
+    color: black ;
+    background-color: white ;
+}
+
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color: rgb(187, 185, 185);
+}
+
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgb(187, 185, 185);
+}
+
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: rgb(187, 185, 185);
+}
+
+.mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+    color: rgb(187, 185, 185);
+    opacity: 0.8;
+}
+
+.mat-input-element {
+    caret-color: rgb(187, 185, 185);
+}
+
+.mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+    caret-color: rgb(187, 185, 185);
+}
+
+.mat-form-field-label {
+    color: rgba(0,0,0,.6);
+
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+    color: rgb(187, 185, 185);
+}
+
+.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: rgb(187, 185, 185);
+}
+
+.mat-select-placeholder{
+    color:rgb(187, 185, 185);
+}

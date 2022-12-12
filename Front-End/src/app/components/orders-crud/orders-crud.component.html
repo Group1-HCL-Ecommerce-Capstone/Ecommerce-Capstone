@@ -1,0 +1,27 @@
+<html>
+
+<br>
+<h1 class="text-center">Order History</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Order Id</th>
+            <th>User Email</th>
+            <th>Date Ordered</th>
+            <th>Status</th>
+            <th>Total Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orderDetails">
+            <td>{{order.id}}</td>
+            <td>{{order.user.email}}</td>
+            <td>{{order.dateOrdered}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.totalPrice| number:'1.2-2'}}</td>
+            <td><button *ngIf="order.status!=='delivered'" (click)="editStatus(order.id)" mat-button class="btn btn-info btn-sm">Update Status</button></td>
+        </tr>
+    </tbody>
+</table>
+</html>

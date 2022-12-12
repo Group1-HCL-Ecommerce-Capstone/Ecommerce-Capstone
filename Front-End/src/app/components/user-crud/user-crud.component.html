@@ -1,0 +1,63 @@
+<html>
+
+<br><h1 class="text-center">User Management</h1>
+<a class="btn btn-light float-end" routerLink="/manage/users/add" role="button">Add User</a><br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Roles</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.userId}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td><div *ngFor="let role of user.roles">{{role.roleType}}</div></td>
+            <!--<td><div *ngFor="let categ of categories">{{categ.categoryName}}</div></td>-->
+            <td> <button mat-button (click)="editUser(user.userId)" class="btn btn-info btn-sm">Edit</button>&nbsp;
+                <button mat-button (click)="deleteUser(user.userId, user.firstName, user.lastName)"
+                    class="btn btn-danger btn-sm">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<!--<table mat-table [dataSource]="users">
+    <ng-container matColumnDef="userId">
+        <mat-header-cell *matHeaderCellDef>User Id</mat-header-cell>
+        <mat-cell *matCellDef="let users">{{users.userId}}</mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="first">
+        <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+        <mat-cell *matCellDef="let users">{{users.firstName}}</mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="last">
+        <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+        <mat-cell *matCellDef="let users">{{users.lastName}}</mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+        <mat-cell *matCellDef="let users">{{users.email}}</mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="roles">
+        <mat-header-cell *matHeaderCellDef>Roles</mat-header-cell>
+        <mat-cell *matCellDef="let users">{{users.roles}}</mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="acts">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef ="let users">
+            <button mat-button (click)="editUser(users.userId)" class="btn btn-info btn-sm">Edit</button> 
+            <button mat-button (click)="deleteUser(users.userId, users.firstName)" class="btn btn-danger btn-sm">Delete</button>
+        </mat-cell>    
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>-->
+
+</html>

@@ -1,0 +1,102 @@
+<br>
+<a class="btn btn-secondary" routerLink="/manage/products" role="button">Back</a>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-md-3">
+            <div class="row" *ngIf="isEdited">
+                <div class="col-xs-12">
+                    <p class="alert alert-success">
+                        <strong>Product Updated! </strong><a routerLink="/manage/products">Go Back</a>
+                    </p>
+                </div>
+            </div>
+            <div class="row" *ngIf="isEdited==false">
+                <div class="col-xs-12">
+                    <p class="alert alert-danger">
+                        <strong>Error Updating Product </strong>
+                    </p>
+                </div>
+            </div>
+            <h1>Product Management</h1>
+            <!--<div class="form-group" [formGroup]="productForm">
+                <div>
+                    <label for="name">Name: </label>
+                    <input id="name" type="text" formControlName="name" />
+                </div>
+                <div>
+                    <label for="description">Description: </label>
+                    <input id="description" type="text" formControlName="description" />
+                </div>
+                <div>
+                    <label for="image">Image: </label>
+                    <input id="image" type="text" formControlName="image" />
+                </div>
+                <div>
+                    <label for="price">Price: </label>
+                    <input id="price" type="text" formControlName="price" />
+                </div>
+                <div>
+                    <label for="stock">Stock: </label>
+                    <input id="stock" type="text" formControlName="stock" />
+                </div>
+                <ng-container formArrayName="categories">
+                    <ng-container *ngFor="let categForm of categories.controls; let index = index">
+                        <div [formGroupName]="index">
+                            <label for="categoryName">Categories: </label>
+                            <input id="categoryName" type="text" formControlName="categoryName" />
+                        </div>
+                        <button type="button" (click)="addCategory()">Add</button>
+                        <button type="button" (click)="deleteCategory(index)">Remove</button>
+                    </ng-container>
+                </ng-container>
+
+
+            </div>
+            <pre>{{oneProduct | json}}</pre>-->
+            <form #ProductForm="ngForm" (ngSubmit)="onSubmit(ProductForm.value)">
+                <h3>Update Product from Catalog</h3>
+                <div class="form-group">
+                    <label for="name"> Product Name: </label>
+                    <input type="text" [(ngModel)]="oneProduct.name" class="form-control" id="name" name="name"
+                        required placeholder="Enter name" autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label for="description"> Description: </label>
+                    <input type="text" [(ngModel)]="oneProduct.description" class="form-control" id="description" name="description"
+                        placeholder="Enter description" autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label for="image"> Image Url: </label>
+                    <input type="text" [(ngModel)]="oneProduct.image" class="form-control" id="image" name="image"
+                        placeholder="Enter image" autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label for="price"> Price: </label>
+                    <input type="text" [(ngModel)]="oneProduct.price" class="form-control" id="price"
+                        name="price" placeholder="Enter price" autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label for="stock"> Stock: </label>
+                    <input type="text" [(ngModel)]="oneProduct.stock" class="form-control" id="stock"
+                        name="stock" placeholder="Enter stock" autofocus="autofocus" />
+                </div>
+
+            <!-- I think this should be a different kind of form, plus i want to add it as chips-->
+            <!--<div class="form-group">
+                    <label for="categories"> Categories</label>
+                    <input type="text" [(ngModel)]="oneProduct.categories" class="form-control" id="categories" name="categories"
+                        placeholder="Enter categories (DONT TEST FOR NOW)" autofocus="autofocus" />
+                </div>-->
+
+            <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="UserDetails-submit" id="UserDetails-submit"
+                                class="form-control btn btn-primary" value="Submit" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

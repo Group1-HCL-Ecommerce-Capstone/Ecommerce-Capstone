@@ -1,0 +1,78 @@
+<html>
+
+<br>
+<h1 class="text-center">Product Management</h1>
+<!-- Add a button that allows admin/manager to add products -->
+<a class="btn btn-light float-end" routerLink="/manage/products/add" role="button">Add Product</a><br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <!--<th>Categories</th>-->
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prd of products">
+            <td>{{prd.id}}</td>
+            <td>{{prd.name}}</td>
+            <td>{{prd.description}}</td>
+            <td><img src="./assets/productImages/{{prd.image}}" alt="{{prd.image}}"
+                    style="width: 50px;height: 60px;" /></td>
+            <td>${{prd.price}}</td>
+            <td>{{prd.stock}}</td>
+            <!--<td><div *ngFor="let categ of prd.categories">{{categ.categoryName}}</div></td>-->
+            <td> <button mat-button (click)="editProduct(prd.id)" class="btn btn-info btn-sm">Edit</button>&nbsp;
+                <button mat-button (click)="deleteProduct(prd.id, prd.name)"
+                    class="btn btn-danger btn-sm">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!--<table mat-table [dataSource]="products">
+    <ng-container matColumnDef="prdId">
+        <mat-header-cell *matHeaderCellDef>Product ID</mat-header-cell>
+        <mat-cell *matCellDef="let products">{{products.id}}</mat-cell>   
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let products">{{products.name}}</mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="desc">
+        <mat-header-cell *matHeaderCellDef>Descriptions</mat-header-cell>
+        <mat-cell *matCellDef="let products">{{products.description}}</mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
+        <mat-cell *matCellDef="let products"><img src="./assets/productImages/{{products.image}}" alt="{{products.image}}" style="width: 50px;height: 60px;"/></mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+        <mat-cell *matCellDef="let products">${{products.price}}</mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="stock">
+        <mat-header-cell *matHeaderCellDef>Stock</mat-header-cell>
+        <mat-cell *matCellDef="let products">{{products.stock}}</mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="categ">
+        <mat-header-cell *matHeaderCellDef>Categories</mat-header-cell>
+        <mat-cell *matCellDef="let products">{{products.categories}}</mat-cell>    
+    </ng-container>
+    <ng-container matColumnDef="acts">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef ="let products">
+            <button mat-button (click)="editProduct(products.id)" class="btn btn-info btn-sm">Edit</button> 
+            <button mat-button (click)="deleteProduct(products.id, products.name)" class="btn btn-danger btn-sm">Delete</button>
+        </mat-cell>    
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</table>-->
+
+</html>

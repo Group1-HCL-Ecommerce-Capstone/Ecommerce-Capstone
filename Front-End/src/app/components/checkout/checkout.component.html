@@ -1,0 +1,63 @@
+<div class="container">
+    <br/>
+    <h2 class="text-center">Checkout</h2>
+    <h4>Purchase Summary</h4>
+    <div class="float-container">
+    <mat-card class="float-child1">
+        <h4 class="text-center" *ngIf="!products || products.length === 0">Your Cart is Empty</h4>
+        <table *ngFor="let item of products; index as i">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>{{item.product.name}}</th>
+                    <th></th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{i+1}}.</td>
+                    <td><img mat-card-sm-image src="./assets/productImages/{{item.product.image}}"></td>
+                    <td>Price: ${{item.product.price}} <br/>
+                        Quantity: {{item.quantity}} <br/>
+                        Total Price: ${{item.product.price*item.quantity| number:'1.2-2'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <mat-divider></mat-divider>
+        <br/>
+        <h5 style="text-align:right;">Cart Total: ${{cart.totalPrice| number:'1.2-2'}}</h5>
+    </mat-card>
+    <mat-card class="float-child2">
+        <h5>User Details </h5>
+        <table>
+            <tbody>
+                <tr>
+                    <td *ngIf="isLoggedIn">Name: {{currentUser.firstName}} {{currentUser.lastName}}<br/>
+                        Email: {{currentUser.email}}</td>
+                    <td *ngIf="isLoggedInOkta">Name: {{name$ | async}}<br/>
+                        Email: {{email$ | async}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <form #CheckoutForm="ngForm" (ngSubmit)="onSubmit(CheckoutForm)">
+        <div *ngIf="userDetails" class="form-group">
+            <label>Address:&nbsp;</label>
+        <mat-form-field class="float-select" appearance="fill">
+            <mat-select placeholder="Select Address" required #adr="ngModel" [(ngModel)]="oneAddress" name="id" >
+                <mat-option *ngFor="let adr of userDetails" [value]="adr.id">{{adr.street}} {{adr.city}}, {{adr.state}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="adr.hasError('required')">Required</mat-error>
+        </mat-form-field>
+        </div>
+        <a *ngIf="!userDetails || userDetails.length === 0" class="btn btn-secondary btn-sm float-button" routerLink="/profile/add" role="button">Add Address</a>
+        <br/>
+        <div style="text-align: center;">
+            <button [disabled]="!CheckoutForm.valid" (click)="makePayment(cart.totalPrice)" class="btn btn-primary btn-block">Pay ${{cart.totalPrice| number:'1.2-2'}}</button>
+          </div>
+        </form>
+    </mat-card>
+</div>
+  
+  </div><br/>

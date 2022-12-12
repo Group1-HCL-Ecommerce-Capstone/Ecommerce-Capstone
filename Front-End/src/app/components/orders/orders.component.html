@@ -1,0 +1,25 @@
+<html>
+
+<br>
+<h1 class="text-center">Order History</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Order Id</th>
+            <th>Date Ordered</th>
+            <th>Status</th>
+            <th>Total Price</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orderDetails">
+            <td>{{order.id}}</td>
+            <td>{{order.dateOrdered}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.totalPrice| number:'1.2-2'}}</td>
+            <td>{{order.address.street}}<br>{{order.address.city}}, {{order.address.state}} {{order.address.zipcode}}<br>{{order.address.country}}</td>
+        </tr>
+    </tbody>
+</table>
+</html>
