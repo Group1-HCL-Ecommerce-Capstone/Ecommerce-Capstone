@@ -30,7 +30,7 @@ import com.capstone.service.ProductService;
 
 @RestController
 @RequestMapping("/products")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://ecommerce-capstone-fe.azurewebsites.net/")
 public class ProductController {
 	@Autowired
 	ProductService prdService;
