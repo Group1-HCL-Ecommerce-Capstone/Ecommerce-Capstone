@@ -28,7 +28,7 @@ export class UserDetailsService {
     private localStore: LocalService,
     private _oktaAuthStateService: OktaAuthStateService
   ) {
-    this.addressUrl = 'http://localhost:8181/address';
+    this.addressUrl = 'https://ecommerce-capstone-be.azurewebsites.net/address';
 
     this.isAuthenticated$ = this._oktaAuthStateService.authState$.pipe(
       filter((s: AuthState) => !!s),
