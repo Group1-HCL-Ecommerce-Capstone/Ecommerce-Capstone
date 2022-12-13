@@ -20,7 +20,7 @@ export class ProductService {
   constructor(
     private http: HttpClient,
     private localStorage: LocalService) { 
-    this.productsUrl = 'http://localhost:8181/products';
+    this.productsUrl = 'https://ecommerce-capstone-be.azurewebsites.net/products';
     this.currentUser = localStorage.getData();
   }
 
