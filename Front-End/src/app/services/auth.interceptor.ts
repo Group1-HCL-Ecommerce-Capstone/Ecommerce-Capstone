@@ -32,7 +32,7 @@ export class AuthInterceptor implements HttpInterceptor {
         if (this.isLoggedInOkta){
             return next.handle(req);
         }else {
-            const allowedOrigins = ['http://localhost'];
+            const allowedOrigins = ['https://ecommerce-capstone-be.azurewebsites.net'];
         if (allowedOrigins.some(url => req.urlWithParams.includes(url))) {
         }
 
