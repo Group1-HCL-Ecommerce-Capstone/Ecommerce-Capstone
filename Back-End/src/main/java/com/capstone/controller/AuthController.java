@@ -35,7 +35,7 @@ import com.capstone.service.UserDetailsImpl;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://ecommerce-capstone-fe.azurewebsites.net/")
 public class AuthController {
 
 	@Autowired
