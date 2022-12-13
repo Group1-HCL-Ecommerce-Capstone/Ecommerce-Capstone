@@ -23,7 +23,7 @@ export class CartService {
   constructor(private http: HttpClient,
     private localStore: LocalService,
     private _oktaAuthStateService: OktaAuthStateService) {
-    this.cartUrl = 'http://localhost:8181/cart';
+    this.cartUrl = 'https://ecommerce-capstone-be.azurewebsites.net/cart';
 
     this.isAuthenticated$ = this._oktaAuthStateService.authState$.pipe(
       filter((s: AuthState) => !!s),
