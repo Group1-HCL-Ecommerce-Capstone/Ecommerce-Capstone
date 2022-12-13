@@ -27,7 +27,7 @@ export class OrderService {
     private localstore: LocalService,
     private _oktaAuthStateService: OktaAuthStateService
   ) {
-    this.orderUrl = 'http://localhost:8181/orders';
+    this.orderUrl = 'https://ecommerce-capstone-be.azurewebsites.net/orders';
     this.isAuthenticated$ = this._oktaAuthStateService.authState$.pipe(
       filter((s: AuthState) => !!s),
       map((s: AuthState) => s.isAuthenticated ?? false)
