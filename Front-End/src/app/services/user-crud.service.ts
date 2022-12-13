@@ -19,7 +19,7 @@ export class UserCrudService {
   constructor(
     private http: HttpClient,
     private localStorage: LocalService) { 
-    this.usersUrl = 'http://localhost:8181/admin';
+    this.usersUrl = 'https://ecommerce-capstone-be.azurewebsites.net/admin';
     this.currentUser = localStorage.getData();
   }
   
