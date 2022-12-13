@@ -9,7 +9,7 @@ export class CategoryService {
   private categoryUrl: string;
 
   constructor(private http: HttpClient) { 
-    this.categoryUrl = 'http://localhost:8181/categories'
+    this.categoryUrl = 'https://ecommerce-capstone-be.azurewebsites.net/categories'
   }
 
   public findCategsUnderProduct(prdId: number){
