@@ -32,7 +32,7 @@ import com.capstone.service.UserService;
 
 @RestController
 @RequestMapping("/address")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://ecommerce-capstone-fe.azurewebsites.net/")
 public class AddressController {
 	@Autowired
 	AddressService adrService;
