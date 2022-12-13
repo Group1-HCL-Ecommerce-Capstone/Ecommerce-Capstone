@@ -24,7 +24,7 @@ import com.capstone.service.ProductService;
 
 @RestController
 @RequestMapping("/categories")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://ecommerce-capstone-fe.azurewebsites.net/")
 public class CategoryController {
 	@Autowired
 	CategoryService catService;
