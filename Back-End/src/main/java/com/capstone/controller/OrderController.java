@@ -30,7 +30,7 @@ import com.capstone.service.OrderService;
 
 @RestController
 @RequestMapping("/orders")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://ecommerce-capstone-fe.azurewebsites.net/")
 public class OrderController {
 	@Autowired
 	OrderService orderServ;
