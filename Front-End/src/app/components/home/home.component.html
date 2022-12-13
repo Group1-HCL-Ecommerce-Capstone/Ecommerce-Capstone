@@ -1,10 +1,25 @@
 
 
 <!--If logged in using db credentials-->
-<p *ngIf="isLoggedInDB" class="text-center">Welcome {{name$}}</p>
+<!--<h1 *ngIf="isLoggedInDB" class="text-center">Welcome {{name$}}</h1>-->
     
 <!--If logged in using okta credentials-->
-<p *ngIf="isLoggedInOkta&&!isLoggedInDB" class="text-center">Hello {{name$ | async}}!</p>
+<!--<h1 *ngIf="isLoggedInOkta&&!isLoggedInDB" class="text-center">Hello {{name$ | async}}!</h1>-->
 
 <!--If not logged in-->
-<p *ngIf="!isLoggedInOkta&&!isLoggedInDB" class="text-center">Welcome</p>
+<!--<h1 *ngIf="!isLoggedInOkta&&!isLoggedInDB" class="text-center">Welcome</h1>-->
+
+<div id="hero-image">
+    <div class="wrapper">
+        <h2 *ngIf="isLoggedInDB" class="text-center"><strong>Welcome {{name$}}</strong><br/>
+        Browse the catalog</h2>
+        <h2 *ngIf="isLoggedInOkta&&!isLoggedInDB" class="text-center"><strong>Hello {{name$ | async}}!</strong><br/>
+            Browse the catalog to start shopping!</h2>
+        <h2 *ngIf="!isLoggedInOkta&&!isLoggedInDB" class="text-center"><strong>Welcome</strong><br/>
+            Sign in to start shopping</h2>
+
+
+        <a *ngIf="!isLoggedInOkta&&!isLoggedInDB" routerLink="/login" class="button-1">Get Started</a>
+        <a *ngIf="isLoggedInOkta||isLoggedInDB" routerLink="/catalog" class="button-1">Go to Catalog</a>
+    </div>
+</div>
