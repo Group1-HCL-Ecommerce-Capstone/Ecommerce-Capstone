@@ -32,7 +32,7 @@ import com.capstone.service.UserService;
 
 @RestController
 @RequestMapping("/cart")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "https://ecommerce-capstone-fe.azurewebsites.net/")
 public class CartController {
 	@Autowired
 	CartService cartServ;
