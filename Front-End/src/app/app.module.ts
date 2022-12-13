@@ -57,7 +57,7 @@ const oktaAuth = new OktaAuth({
   clientId: '0oa7fxszif3FkGsQM5d7',
   //okta domain, if not given in application it is in your okta url
   issuer: 'https://dev-84185932.okta.com/oauth2/default',
-  redirectUri: 'http://localhost:4200/login/callback',
+  redirectUri: 'https://ecommerce-capstone-fe.azurewebsites.net/login/callback',
   scopes: ['openid', 'profile', 'email', 'address']
 })
 
