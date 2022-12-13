@@ -23,7 +23,7 @@ export class UserRegService {
     private localStore: LocalService,
     private router: Router
   ) {
-    this.userRegUrl = 'http://localhost:8181/auth';
+    this.userRegUrl = 'https://ecommerce-capstone-be.azurewebsites.net/auth';
     this.currentUser = this.localStore.getData();
   }
 
